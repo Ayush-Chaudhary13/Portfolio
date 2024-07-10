@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ayush Chaudhary</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: rgb(108, 108, 109);
+            padding-top: 100px; /* Adjust to the height of the fixed nav */
+        }
+
+        header {
+            font-family: sans-serif;
+            width: 100%;
+            height: 100vh;
+        }
+
+        nav {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed; 
+            top: 0; /* Align to top */
+            background-color: rgba(0,0,0,0.5); /* Set a background color */
+            z-index: 1000; /* Ensure it's on top of other content */
+        }
+
+        .logo {
+            font-size: 2em;
+            letter-spacing: 2px;
+            color:antiquewhite;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: antiquewhite;
+            padding: 10px 20px;
+            font-size: 20px;
+            position: relative;
+        }
+
+        .menu a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            border-top: 2px solid black;
+            z-index: 1;
+            transition: 0.4s linear;
+        }
+
+        .menu a:hover:before {
+            width: 90%;
+        }
+
+        .menu a.active {
+            color: orange;
+            border-bottom: 2px solid orange;
+        }
+
+        .login a {
+            text-decoration: none;
+            color: white;
+            background: black;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: 0.4s;
+        }
+
+        .login a:hover {
+            background: transparent;
+            border: 1px solid black;
+            color: black;
+        }
+
+        #h-text {
+            width: 100%;
+            height: 70%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            animation: fadeIn 2s ease-out;
+        }
+
+        #h-text h1 {
+            font-size: 3em;
+        }
+
+        #h-text span {
+            color: orange;
+        }
+
+        #h-text a {
+            text-decoration: none;
+            background: black;
+            color: white;
+            letter-spacing: 5px;
+            padding: 10px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        #h-text a:before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid black;
+            background: orange;
+            z-index: -1;
+        }
+
+        #himg {
+            box-shadow: 20px 10px 8px rgb(59, 59, 59);
+            border-radius: 13px;
+            height: 400px;
+            width: 100%;
+            opacity: 92%;
+            animation: slideIn 2s ease-out;
+        }
+
+        #man {
+            position: absolute;
+            bottom: 0;
+            left: 400px;
+            height: 50%;
+            width: 20%;
+        }
+
+        section {
+            padding: 50px;
+            font-family: sans-serif;
+            color: white;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .education, .skills, .contact {
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        .education-item, .skills-item {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .skills-list li {
+            flex: 1 1 30%;
+            list-style-type: none;
+            background: orange;
+            color: black;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s, background 0.3s, color 0.3s;
+        }
+
+        .skills-list li:hover {
+            background: black;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .contact button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: black;
+            color: white;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        .contact button:hover {
+            background: orange;
+        }
+
+        footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .social-links a {
+            color: orange;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: white;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                Personal <span style="color: orange;">Portfolio</span>
+            </div>
+            <div class="menu">
+                <a href="#home" class="active">Home</a>
+                <a href="#education">Education</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="login">
+                <a href="#">Thank You</a>
+            </div>
+        </nav>
+
+        <section id="h-text">
+            <div class="left">
+                <p>Hello, I'm</p>
+                <h1>Ayush <span>Chaudhary</span></h1>
+                <p>Student of HBTU</p>
+                <br><br>
+                <a href="#" target="_blank">Open CV</a>
+            </div>
+            <div class="right">
+                <img src="img.jpg" width="500" id="himg">
+            </div>
+        </section>
+        <img src="guitar.gif" width="200" id="man">
+    </header>
+
+    <section id="education" style="background-image: url('education-bg.jpg');">
+        <h2 class="section-title">Education</h2>
+        <div class="education">
+            <div class="education-item">
+                <h3>Harcourt Butler Technical University (HBTU)</h3>
+                <p>Bachelor of Technology in Information Technology</p>
+                <p>2021 - 2025</p>
+                <p>I'm currently in the final year of pursuing a Btech in Information Technology at 
+                    Harcourt Butler Technical University (HBTU). Prior to this, I completed my high school education at St. Paul's 
+                    Senior Secondary School with an impressive aggregate of 95%, followed by my intermediate studies with a remarkable 92%.
+                    I have demonstrated strong problem-solving skills, having actively engaged in data structures and algorithms (DSA) and 
+                    competitive coding on platforms like Codeforces and CodeChef. Additionally, I have acquired proficiency in full-stack 
+                    development, working with technologies such as React.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" style="background-image: url('skills-bg.jpg');">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills">
+            <ul class="skills-list">
+                <li>Data structures & Algo.</li>
+                <li>HTML & CSS</li>
+                <li>JavaScript</li>
+                <li>C++</li>
+                <li>CP</li>
+                <li>MERN stack Dev</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact" style="background-image: url('contact-bg.jpg');">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact">
+            <div class="contact-item">
+                <label for="email">Email: <span style="color: orange;">ayushpnwr02@gmail.com</span> </label>
+
+            </div>
+            <div class="contact-item">
+                 <label for="message">Mob-No: <span style="color: orange;">+91931934XXXX</span> </label>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Ayush Chaudhary. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+                <a href="#">leetcode</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+       
